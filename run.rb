@@ -12,4 +12,8 @@ password = settings['password']
 
 bot = BVGBot.instance(email, password)
 
-bot.run
+bot.run :async
+
+bot.game = 'AWSOMESAUCE'
+
+bot.sync
