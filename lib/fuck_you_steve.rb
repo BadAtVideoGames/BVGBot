@@ -9,7 +9,7 @@ module BVG
 
     module ClassMethods
       def reply_with_fuck_you_too_q(event)
-        event.respond "Steve says, 'Fuck you too #{event.author.username}!'"
+        event.respond "#{event.user.mention} Steve says, 'Fuck you too Q!'"
       end
     end
   end
