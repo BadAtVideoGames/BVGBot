@@ -1,16 +1,13 @@
 module BVG
   module Mentions
-    def self.included(base)
-      base.extend(ClassMethods)
-      base.class_eval do
-        register_class_event(Discordrb::Events::MentionEvent, containing: /(f|F)(uck)? you/, &method(:reply_with_fuck_you_too_q))
-      end
+    extend ActiveSupport::Concern
+
+    included do
+      register_event :reply_with_fuck_you_too_q, :mention_event, containing: /(f|F)(uck)? you/
     end
 
-    module ClassMethods
-      def reply_with_fuck_you_too_q(event)
-        event.respond "#{event.user.mention} Fuck you too #{event.author.username}!"
-      end
+    def reply_with_fuck_you_too_q(event)
+      event.respond "#{event.user.mention} Fuck you too #{event.author.username}!"
     end
   end
 end
