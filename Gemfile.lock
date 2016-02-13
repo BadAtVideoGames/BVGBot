@@ -106,7 +106,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  activesupport
   discordrb
   google-api-client
   pry
